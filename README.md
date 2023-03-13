@@ -1,27 +1,22 @@
-# Autenticacion
+MI EQUIPO MUNDIALISTA
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.7.
+Mi Equipo Mundialista es una página web en la que podrás crear tu equipo para el Mundial Qatar 2022. En el mismo podrás elegir un nombre, luego una pelota y finalmente 11 jugadores.
 
-## Development server
+DISEÑO
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+El diseño cuenta con distintos templates:
 
-## Code scaffolding
+Login: Se debe ingresar un usuario y una contraseña.
+Index: Da la bienvenida al usuario y lo invita a navegar en el sitio web.
+Nuevo Equipo: Se debe completar el nombre que llevará el equipo junto con su pelota y los 11 jugadores que lo integrarán.
+Mi Equipo: Se podrán ver los datos del equipo creado.
+Ver Equipos: Se podrá ver la lista de los usuarios y los nombres de sus equipos.
+Detalles Equipo: Se podrá ver los datos del usuario accediendo mediante el template "Ver Equipos".
+Foro: Se podrá realizar publicaciones con opción de agregarle una imagen. También se podrá ver las publiaciones de los distintos usuarios.
+Admin: Mostrará la lista de usuarios y de publicaciones en caso de querer eliminar alguno o alguna. El template solo está habilitado para aquellos usuarios con el rol "admin" y se mostrará recargando la página.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+FUNCIONALIDAD
 
-## Build
+La página web fue realizada en Angular y cuenta con diversos componentes que incluye los templates recientemente mencionados, un nav-bar que se mostrará en todos los templates y un servicio "guard" para manejar las cuestiones de seguridad.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+En cuanto a base de datos, la comunicación con la misma se realiza mediante PHP.
