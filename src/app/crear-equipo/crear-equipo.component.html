@@ -1,0 +1,113 @@
+<head>
+  <script>
+    /*function validate(){
+        var color = document.myform.color.value;
+        if(color = ""){
+          alert("Mal");
+          return false;
+        } else {
+          alert("Bien");
+          return true;
+        }
+    }*/
+    /*document.addEventListener('DOMContentLoaded', () => {
+            document
+              .getElementById('jugadores')
+              .addEventListener('select', handleSelect);
+          });
+    
+          function handleSelect(ev) {
+            let select = ev.target; //document.getElementById('jugadores');
+            console.log(select.value);
+            let choices = [];
+            // for (let i = 0; i < select.selectedOptions.length; i++) {
+            //   choices.push(select.selectedOptions[i].value);
+            // }
+            choices = [].map.call(select.selectedOptions, (option) => option.value);
+            console.log(choices);
+          }*/
+  </script>
+</head>
+<body>
+  <!-- <h3>Select a color:</h3>
+  <form name = "myform" onsubmit = "return validate()">
+    <select>
+      <option value = "">Select a color</option>
+      <option value = "red">Red</option>
+      <option value = "blue">Blue</option>
+      <option value = "green">Green</option>
+    </select>
+    <input type="submit" value="submit">
+  </form> -->
+  <h4 class="text-center">Nuevo Equipo</h4>
+    <div class="row">
+      <div class="col-12">
+        <form name="myForm">
+        <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="nombre" name="nombre" [(ngModel)]="unEquipo.nombre" required>
+          </div>     
+          <div class="mb-3">
+              <label for="pelota" class="form-label">Pelota</label>
+              <select class="form-control" id="pelota" name="pelota" [(ngModel)]="unEquipo.pelota_id" required>
+                <option *ngFor = "let p of pelotas" [value]="p.id">{{ p.nombre }}</option>
+              </select>
+          </div>
+          <div>
+            <img *ngFor = "let p of pelotas" src="data:image/jpeg;base64,{{ p.imagen }}" style="max-width:15%">
+          </div>
+          <div class="mb-3">
+              <label for="jugadores" class="form-label">Jugadores</label>
+              <select multiple class="form-control" id="jugadores" multiple [size]="jugadores.length" name="jugadores" [(ngModel)]="unEquipo.jugadores" multiple required>
+                <option *ngFor = "let j of jugadores" [value]="j.id">{{ j.nombre }}</option>
+              </select>
+              <small class="text-muted"><code>Ctrl + clic</code> para seleccionar más de una opción</small>
+          </div>
+         <!--  <input type="submit" value="Validate" onclick="Validate()" />
+            <script type="text/javascript"></script>
+            <script>
+                function Validate() {
+                    var jugadores = document.getElementById("jugadores");
+                    if (jugadores.value == "") {
+                        //If the "Please Select" option is selected display error.
+                        alert("Please select an option!");
+                        return false;
+                    }
+                    return true;
+                }
+            </script> -->
+          <button type="button" class="btn btn-outline-primary me-1" (click) = "guardar()">Guardar</button>
+          <button type="reset" class="btn btn-outline-secondary" (click) = "descartar()">Descartar</button>
+        </form>
+        <!-- <script>
+          document.addEventListener('DOMContentLoaded', () => {
+            document
+              .getElementById('jugadores')
+              .addEventListener('input', handleSelect);
+          });
+    
+          function handleSelect(ev) {
+            let select = ev.target; //document.getElementById('jugadores');
+            console.log(select.value);
+            let choices = [];
+            // for (let i = 0; i < select.selectedOptions.length; i++) {
+            //   choices.push(select.selectedOptions[i].value);
+            // }
+            choices = [].map.call(select.selectedOptions, (option) => option.value);
+            console.log(choices);
+          }
+      </script> -->
+     <!-- <script>
+        $(document).ready(function(){
+          $(".check").click(function(){
+            if($("input:checkbox").filter(":checked").length > 10){
+              alert("Error");
+            } else {
+              alert("Bien");
+            }
+          })
+        })
+    </script> -->
+    </div>
+  </div>
+</body>

@@ -1,0 +1,35 @@
+<!-- <p *ngIf="verEquipos">{{ verEquipos.data }}</p> -->
+
+<h4 class="text-center">Equipos</h4>
+  <div class="row">
+    <div class="col-12">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col" class="text-center">#</th>
+            <th scope="col" class="text-center">Equipo</th>
+            <th scope="col" class="text-center">Usuario</th>
+          </tr>
+        </thead>
+       <tbody>
+          <tr *ngFor = "let e of equipos">
+            <th scope="row" class="text-center">{{ e.id }}</th>
+            <th scope="row" class="text-center">{{ e.nombre }}</th>
+            <td class="text-center">{{ e.usuario }}</td>
+            <td class="text-center text-nowrap">
+                <button type="button" class="btn btn-sm btn-danger" [routerLink]="['/detallesEquipo', e.id]">Detalles</button>
+              </td>
+            <!-- <button type="button" class="btn btn-sm btn-primary me-1" (click) = "detalles(e.id)">Detalles</button> -->
+            <!-- <td class="text-center">{{ j.posicion }}</td> -->
+            <!-- <td>
+              <span class="badge bg-primary me-1" *ngFor = "let r of s.rubros">{{ r }}</span>
+            </td>
+            <td class="text-center text-nowrap">
+              <button type="button" class="btn btn-sm btn-primary me-1" (click) = "editar(s.id)">Editar</button>
+              <button type="button" class="btn btn-sm btn-danger" (click) = "borrar(s.id)">Borrar</button>
+            </td> -->
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

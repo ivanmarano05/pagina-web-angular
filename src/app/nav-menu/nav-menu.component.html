@@ -1,0 +1,37 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" [routerLink]="['/']">Mi Equipo Mundialista</a>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item" [routerLinkActive]='["link-active"]'>
+          <a class="nav-link" [routerLink]="['/inicio']" [ngClass]="{'disabled': !autenticador.estaAutenticado(), ' text-light': autenticador.estaAutenticado()}">Inicio</a>
+        </li>
+        <li class="nav-item" [routerLinkActive]='["link-active"]'>
+          <a class="nav-link" [routerLink]="['/crearEquipo']" [ngClass]="{'disabled': !autenticador.estaAutenticado(), ' text-light': autenticador.estaAutenticado()}">Nuevo Equipo</a>
+        </li>
+        <li class="nav-item" [routerLinkActive]='["link-active"]'>
+          <a class="nav-link" [routerLink]="['/miEquipo']" [ngClass]="{'disabled': !autenticador.estaAutenticado(), ' text-light': autenticador.estaAutenticado()}">Mi Equipo</a>
+        </li>
+        <li class="nav-item" [routerLinkActive]='["link-active"]'>
+          <a class="nav-link" [routerLink]="['/verEquipos']" [ngClass]="{'disabled': !autenticador.estaAutenticado(), ' text-light': autenticador.estaAutenticado()}">Ver Equipos</a>
+        </li>
+        <li class="nav-item" [routerLinkActive]='["link-active"]'>
+          <a class="nav-link" [routerLink]="['/foro']" [ngClass]="{'disabled': !autenticador.estaAutenticado(), ' text-light': autenticador.estaAutenticado()}">Foro</a>
+        </li>
+        <!-- <li *ngIf="esAdmin()" class="nav-item" [routerLinkActive]='["link-active"]'>
+          <a class="nav-link" [routerLink]="['/administrador']" [ngClass]="{'disabled': !autenticador.estaAutenticado(), ' text-light': autenticador.estaAutenticado()}">Admin</a>
+        </li> -->
+        <li *ngIf="esAdmin && autenticador.estaAutenticado()" class="nav-item" [routerLinkActive]="['link-active']">
+          <a class="nav-link text-light" [routerLink]="['/administrador']">Admin</a>
+        </li>
+        <li *ngIf="!autenticador.estaAutenticado()" class="nav-item" [routerLinkActive]="['link-active']">
+          <a class="nav-link text-light" [routerLink]="['/login']">Login</a>
+        </li>
+        <li *ngIf="autenticador.estaAutenticado()" class="nav-item" (click)="logOut()">
+          <a class="nav-link text-light" role="button">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+

@@ -1,0 +1,64 @@
+<h4 class="text-center">Foro</h4>
+
+<div class="mb-3">
+  <label for="mensaje" class="form-label">Publicación</label>
+  <input type="text" class="form-control" id="mensaje" name="mensaje" [(ngModel)]="unMensaje.mensaje">
+</div>
+
+<form [formGroup]="uploadImageForm" class="form-horizontal" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="mensaje" class="form-label">Imagen (opcional)</label>
+    <input type="file" class="form-control" accept="image/*" formControlName="Image" (change)="imageUpload($event)">
+  </div>
+  <div class="col-md-5 mt-2">
+    <img [src]="profileImage" (load)="handleImageLoad()" height="80%" width="40%" style="object-fit: cover;">
+  </div><br>
+  <div>
+    <button type="submit" class="btn btn-success btn-sm">Confirmar</button>
+  </div>
+</form>
+
+      <br><br><br>
+
+<!-- <div class="mb-3">
+  <label for="mensaje" class="form-label">Imagen (opcional)</label>
+  <input type="file" class="form-control" id="imagen" name="imagen" [(ngModel)]="unMensaje.imagen">
+</div> -->
+
+<button type="button" class="btn btn-danger btn-lg" (click) = "guardar()">Publicar</button>
+
+  <div class="row">
+    <div class="col-12">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col" class="text-center">Usuario</th>
+            <th scope="col" class="text-center">Publicación</th>
+            <th scope="col" class="text-center">Imagen</th>
+          </tr>
+        </thead>
+       <tbody>
+          <tr *ngFor = "let m of mensajes">
+            <th scope="row" class="text-center">{{ m.usuario }}</th>
+            <th scope="row" class="text-center">{{ m.mensaje }}</th>
+            <!-- <td class="text-center">{{ m.imagen }}</td> -->
+            <th scope="row" class="text-center">
+                <!-- <img src="data:image/jpeg;base64,{{m.imagen}}" class="rounded-circle" width="45" height="45"> -->
+                <img height="80%" width="30%" src="data:image/jpeg;base64,{{ m.imagen }}">
+                <!-- <img [src]="profileImage" (load)="handleImageLoad()" height="80%" width="20%" style="object-fit: cover;"> -->
+                <!-- <img width="100" [src]='thumbnail' /> -->
+            </th>            
+            <!-- <button type="button" class="btn btn-sm btn-primary me-1" (click) = "detalles(e.id)">Detalles</button> -->
+            <!-- <td class="text-center">{{ j.posicion }}</td> -->
+            <!-- <td>
+              <span class="badge bg-primary me-1" *ngFor = "let r of s.rubros">{{ r }}</span>
+            </td>
+            <td class="text-center text-nowrap">
+              <button type="button" class="btn btn-sm btn-primary me-1" (click) = "editar(s.id)">Editar</button>
+              <button type="button" class="btn btn-sm btn-danger" (click) = "borrar(s.id)">Borrar</button>
+            </td> -->
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

@@ -1,0 +1,35 @@
+<!-- <p *ngIf="miEquipo">{{ miEquipo.data }}</p> -->
+
+<h4 class="text-center">{{ miEquipo.nombre }}</h4>
+<h4>Pelota: {{ miEquipo.pelota }}</h4>
+<img src="data:image/jpeg;base64,{{ miEquipo.pelotaImagen }}" style="max-width:15%">
+<h4>Jugadores: </h4>
+  <div class="row">
+    <div class="col-12">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+           <!-- <th scope="col" class="text-center">#</th> -->
+            <th scope="col">Jugador</th>
+            <th scope="col" class="text-center">Pais</th>
+            <th scope="col" class="text-center">Posicion</th>
+          </tr>
+        </thead>
+       <tbody>
+          <tr *ngFor = "let j of jugadores">
+           <!-- <th scope="row" class="text-center">{{ j.id }}</th> -->
+            <td>{{ j.nombre }}</td>
+            <td class="text-center">{{ j.pais }}</td>
+            <td class="text-center">{{ j.posicion }}</td>
+           <!-- <td>
+              <span class="badge bg-primary me-1" *ngFor = "let r of s.rubros">{{ r }}</span>
+            </td>
+            <td class="text-center text-nowrap">
+              <button type="button" class="btn btn-sm btn-primary me-1" (click) = "editar(s.id)">Editar</button>
+              <button type="button" class="btn btn-sm btn-danger" (click) = "borrar(s.id)">Borrar</button>
+            </td> -->
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
